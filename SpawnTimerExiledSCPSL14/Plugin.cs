@@ -47,7 +47,7 @@ namespace SpawnTimerExiledSCPSL14
         {
             while (true)
             {
-                yield return Timing.WaitForSeconds(1);
+                yield return Timing.WaitForSeconds(0.98f);
                 foreach (Player pl in Player.List)
                 {
                     if ((pl.Role.Type == RoleTypeId.Spectator) && !Round.IsLobby)
@@ -69,16 +69,16 @@ namespace SpawnTimerExiledSCPSL14
             if (minTimer.Name == "NtfSpawnWave")
             {
                 if (minTimer.TimeLeft < TimeSpan.FromSeconds(1))
-                    return $"<color=#6D9FF7>Ntf</color>";
+                    return $"<color={Config.ColorNTF}>{Config.TextNTF}</color>";
                 else
-                    return $"<color=#6D9FF7>{minTimer.TimeLeft.Minutes}:{minTimer.TimeLeft.Seconds:00}</color>";
+                    return $"<color={Config.ColorNTF}>{minTimer.TimeLeft.Minutes}:{minTimer.TimeLeft.Seconds:00}</color>";
             }
             else if (minTimer.Name == "ChaosSpawnWave")
             {
                 if (minTimer.TimeLeft < TimeSpan.FromSeconds(1))
-                    return $"<color=#608F38>Chaos</color>";
+                    return $"<color={Config.ColorChaos}>{Config.TextChaos}</color>";
                 else
-                    return $"<color=#608F38>{minTimer.TimeLeft.Minutes}:{minTimer.TimeLeft.Seconds:00}</color>";
+                    return $"<color={Config.ColorChaos}>{minTimer.TimeLeft.Minutes}:{minTimer.TimeLeft.Seconds:00}</color>";
             }
 
             return "Error";
